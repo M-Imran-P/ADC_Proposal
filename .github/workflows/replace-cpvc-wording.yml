@@ -1,0 +1,36 @@
+name: Apply CPVC wording update
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/replace-cpvc-wording.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Replace requested wording only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('src/App.tsx')
+          s = p.read_text()
+          old = 'CPVC Class B (4 kg) SDR 11'
+          new = 'CPVC SDR 11'
+          count = s.count(old)
+          if count != 1:
+              raise SystemExit(f'Expected exactly one occurrence, found {count}')
+          p.write_text(s.replace(old, new))
+          PY
+      - name: Commit requested wording change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/App.tsx
+          git commit -m "Replace CPVC Class B wording with CPVC SDR 11"
+          git push

@@ -1,0 +1,35 @@
+name: Restore Approved Section 5
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/restore-approved-section5.yml']
+permissions:
+  contents: write
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore approved Section 5 only
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('src/App.tsx')
+          s=p.read_text()
+          s=s.replace('Dr. Fixit / FOSROC or equivalent — waterproofing', 'Dr. Fixit / Fosroc or equivalent — waterproofing')
+          s=s.replace('Crystalline waterproofing (Zydex / Fosroc) + chemical waterproofing system', 'Dr. Fixit / Fosroc + chemical waterproofing system')
+          s=s.replace('Dr. Fixit / FOSROC + terrace screed with WP component', 'Dr. Fixit / Fosroc + terrace screed with WP component')
+          assert 'Dr. Fixit / Fosroc + chemical waterproofing system' in s
+          assert 'CPVC SDR 11' in s
+          assert s.index('id="sec-6"') < s.index('id="sec-7"') < s.index('id="sec-8"')
+          p.write_text(s)
+          PY
+      - name: Build verification
+        run: npm install && npm run build
+      - name: Commit approved Section 5
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/App.tsx
+          git commit -m "Restore approved seven-page Section 5" || exit 0
+          git push

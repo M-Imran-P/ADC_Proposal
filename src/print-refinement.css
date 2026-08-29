@@ -97,5 +97,12 @@
   .page-7 .tc-li { margin-bottom:7px!important; }
 
   .print-footer { margin-top:5px!important; padding-top:5px!important; }
+
+  /* Page 1 breathing room: spacing only; typography unchanged. */
+  .page-1 .cov-title { margin-top:5px!important; margin-bottom:4px!important; }
+  .page-1 .cov-date { margin-bottom:8px!important; }
+  .page-1 .cov-tiers { margin-top:7px!important; }
+  .page-1 .cov-overview-box { margin-top:12px!important; margin-bottom:12px!important; }
+  .page-1 #sec-1 { margin-top:14px!important; }
   a[href]::after { content:none!important; }
 }

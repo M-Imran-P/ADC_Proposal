@@ -27,7 +27,7 @@ export default function App() {
         </div>
 
         <div className="cov-content">
-          <div className="cov-title">2026 Proposal Matrix — Residential Turnkey Construction</div>
+          <div className="cov-title">Residential Turnkey Construction</div>
           <div className="cov-date">
             All rates in ₹/sq.ft of built-up area · Measured roof outer edge to outer edge at all floors including parking, balconies, staircase, ducts &amp; utility · 18% GST applicable additionally
           </div>
@@ -108,10 +108,10 @@ export default function App() {
               </tr>
               <tr>
                 <td>MEP Drawing</td>
-                <td>MEP as per package standards</td>
-                <td>MEP as per package standards</td>
-                <td>Detailed MEP drawing floor wise</td>
-                <td>Detailed MEP drawing floor wise</td>
+                <td>as per package standards</td>
+                <td>as per package standards</td>
+                <td>floor wise drawings</td>
+                <td>floor wise detailed drawings</td>
               </tr>
               <tr>
                 <td>GFC Drawings</td>

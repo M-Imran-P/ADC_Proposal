@@ -1,0 +1,43 @@
+name: Render ADC Proposal PDF
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/**'
+      - 'index.html'
+      - 'package.json'
+      - 'vite.config.ts'
+      - 'scripts/render-pdf.mjs'
+      - '.github/workflows/render-proposal-pdf.yml'
+  workflow_dispatch:
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm install --no-save playwright@1.55.0
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - name: Start preview server
+        run: |
+          nohup npx vite preview --host 127.0.0.1 --port 4173 > /tmp/adc-vite.log 2>&1 &
+          for i in {1..30}; do
+            if curl -fsS http://127.0.0.1:4173 >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/adc-vite.log
+          exit 1
+      - name: Render A4 PDF
+        run: node scripts/render-pdf.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ADC_PROPOSAL_7_PAGE_REFINED
+          path: ADC_PROPOSAL_7_PAGE_REFINED.pdf
+          if-no-files-found: error

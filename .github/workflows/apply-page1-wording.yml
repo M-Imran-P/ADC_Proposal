@@ -16,37 +16,52 @@ jobs:
       - uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Apply exact authorised replacements
+      - name: Apply exact authorised replacements and print spacing
         run: |
           python - <<'PY'
           from pathlib import Path
-          p = Path('src/App.tsx')
-          s = p.read_text()
-          replacements = [
+
+          app = Path('src/App.tsx')
+          s = app.read_text()
+
+          exact = [
               ('2026 Proposal Matrix — Residential Turnkey Construction', 'Residential Turnkey Construction', 1),
               ('<td>MEP as per package standards</td>', '<td>as per package standards</td>', 2),
-              ('<td>Detailed MEP drawing floor wise</td>', '<td>floor wise drawings</td>', 1),
           ]
-          for old, new, expected in replacements:
+          for old, new, expected in exact:
               actual = s.count(old)
               if actual != expected:
                   raise SystemExit(f'Expected {expected} occurrence(s) of {old!r}, found {actual}')
-              if expected == 1:
-                  s = s.replace(old, new, 1)
-              else:
-                  s = s.replace(old, new)
-          old = '<td>floor wise drawings</td>\n                <td>Detailed MEP drawing floor wise</td>'
-          # The first replacement above changes only the first detailed cell; now change the remaining Executive cell exactly.
-          remaining = '<td>Detailed MEP drawing floor wise</td>'
-          if s.count(remaining) != 1:
-              raise SystemExit(f'Expected 1 remaining Executive detailed MEP cell, found {s.count(remaining)}')
-          s = s.replace(remaining, '<td>floor wise detailed drawings</td>', 1)
-          p.write_text(s)
+              s = s.replace(old, new)
+
+          old = '<td>Detailed MEP drawing floor wise</td>'
+          if s.count(old) != 2:
+              raise SystemExit(f'Expected 2 Detailed MEP cells, found {s.count(old)}')
+          s = s.replace(old, '<td>floor wise drawings</td>', 1)
+          s = s.replace(old, '<td>floor wise detailed drawings</td>', 1)
+          app.write_text(s)
+
+          css = Path('src/print-refinement.css')
+          c = css.read_text()
+          marker = '  a[href]::after { content:none!important; }\n'
+          addition = '''
+  /* Page 1 breathing room: spacing only; typography and wording unchanged. */
+  .page-1 .cov-title { margin-top:5px!important; margin-bottom:4px!important; }
+  .page-1 .cov-date { margin-bottom:8px!important; }
+  .page-1 .cov-tiers { margin-top:7px!important; }
+  .page-1 .cov-overview-box { margin-top:12px!important; margin-bottom:12px!important; }
+  .page-1 #sec-1 { margin-top:14px!important; }
+'''
+          if 'Page 1 breathing room: spacing only' not in c:
+              if marker not in c:
+                  raise SystemExit('Print refinement insertion marker not found')
+              c = c.replace(marker, addition + marker, 1)
+              css.write_text(c)
           PY
       - name: Commit source update
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/App.tsx
-          git commit -m "Apply requested page 1 wording refinements"
+          git add src/App.tsx src/print-refinement.css
+          git commit -m "Apply requested page 1 wording and spacing refinements"
           git push

@@ -1,0 +1,42 @@
+name: Reorder Sections 6 and 7
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/reorder-sections-6-7.yml']
+permissions:
+  contents: write
+jobs:
+  reorder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Put Section 6 above Section 7
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('src/App.tsx')
+          s=p.read_text()
+          m7='{/* ===== SECTION 7: KITCHEN FIXTURES ===== */}'
+          m6='{/* ===== SECTION 6: FLOORING & WALL TILING ===== */}'
+          m8='{/* ===== SECTION 8: BATHROOMS & PLUMBING ===== */}'
+          a=s.index(m7)
+          b=s.index(m6,a)
+          c=s.index(m8,b)
+          sec7=s[a:b]
+          sec6=s[b:c]
+          s=s[:a]+sec6+sec7+s[c:]
+          assert s.index('id="sec-6"') < s.index('id="sec-7"') < s.index('id="sec-8"')
+          p.write_text(s)
+          PY
+      - name: Build verification
+        run: npm install && npm run build
+      - name: Commit reorder only
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/App.tsx
+          git commit -m "Place Section 6 above Section 7" || exit 0
+          git push

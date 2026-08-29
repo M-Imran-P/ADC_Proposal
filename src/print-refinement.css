@@ -53,49 +53,6 @@
   .tc-li { margin-bottom:2px!important; }
   .tc-box { break-inside:auto!important; page-break-inside:auto!important; }
 
-  /* Final authored block: use the remaining seventh-page height through spacing only.
-     No text, font size, table width or line-breaking rule is changed. */
-  .page-7 .sh {
-    margin-top:10px!important;
-    margin-bottom:4px!important;
-    padding-top:7px!important;
-    padding-bottom:7px!important;
-  }
-  .page-7 .st { margin-bottom:9px!important; }
-  .page-7 .st th,.page-7 .st td {
-    padding-top:7px!important;
-    padding-bottom:7px!important;
-  }
-  .page-7 .qa-grid {
-    gap:10px!important;
-    margin-bottom:13px!important;
-  }
-  .page-7 .qa-card {
-    padding-top:12px!important;
-    padding-bottom:12px!important;
-  }
-  .page-7 .qa-card h5 {
-    margin-bottom:5px!important;
-    padding-bottom:4px!important;
-  }
-  .page-7 .qa-item {
-    padding-top:4px!important;
-    padding-bottom:4px!important;
-  }
-  .page-7 .qa-grid + div { margin-bottom:16px!important; }
-  .page-7 .info-box,.page-7 .excl-box,.page-7 .tc-box {
-    padding-top:14px!important;
-    padding-bottom:14px!important;
-    margin-bottom:12px!important;
-  }
-  .page-7 .excl-grid { gap:8px 12px!important; }
-  .page-7 .xi {
-    padding-top:4px!important;
-    padding-bottom:4px!important;
-  }
-  .page-7 .tc-box h4,.page-7 .excl-box h4 { margin-bottom:6px!important; }
-  .page-7 .tc-li { margin-bottom:7px!important; }
-
   .print-footer { margin-top:5px!important; padding-top:5px!important; }
 
   /* Page 1 breathing room: spacing only; typography unchanged. */

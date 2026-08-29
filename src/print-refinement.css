@@ -1,0 +1,89 @@
+/*
+ * ADC Proposal - print-only refinement layer
+ * Purpose: preserve the existing proposal content and typography while making
+ * the seven explicit page blocks export more predictably to A4/PDF.
+ * No proposal wording is changed by this file.
+ */
+
+@media print {
+  /* Keep the authored seven-page structure, but do not vertically stretch
+     content inside each page. The base stylesheet already controls A4 sizing,
+     typography and page-specific density. */
+  .page-block {
+    display: block !important;
+    justify-content: initial !important;
+    align-content: initial !important;
+    align-items: initial !important;
+  }
+
+  .page-block.page-1 {
+    break-before: auto !important;
+    page-break-before: auto !important;
+  }
+
+  .page-block.page-2,
+  .page-block.page-3,
+  .page-block.page-4,
+  .page-block.page-5,
+  .page-block.page-6,
+  .page-block.page-7 {
+    break-before: page !important;
+    page-break-before: always !important;
+  }
+
+  .page-block.page-7 {
+    break-after: auto !important;
+    page-break-after: auto !important;
+  }
+
+  /* Never separate a section title from the table/card immediately following it. */
+  .sh {
+    break-after: avoid-page !important;
+    page-break-after: avoid !important;
+  }
+
+  .sh + .st,
+  .sh + .qa-grid,
+  .sh + .info-box,
+  .sh + .mr-wrap,
+  .sh + .pos-grid {
+    break-before: avoid-page !important;
+    page-break-before: avoid !important;
+  }
+
+  /* Preserve complete rows/cards and prevent browser-created word splitting.
+     Normal wrapping at spaces remains available; words themselves are not split. */
+  .st tr,
+  .ct tr,
+  .mr-wrap tr,
+  .qa-card,
+  .pos-card,
+  .info-box,
+  .excl-box,
+  .tc-box,
+  .wi {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .st td,
+  .st th,
+  .ct td,
+  .ct th,
+  .mr-wrap td,
+  .mr-wrap th,
+  .cov-sub,
+  .cov-date,
+  .cov-overview-item,
+  .xi,
+  .tc-li {
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+  }
+
+  /* Keep the browser from appending URLs after links in print. */
+  a[href]::after {
+    content: none !important;
+  }
+}

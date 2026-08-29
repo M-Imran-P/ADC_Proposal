@@ -445,46 +445,6 @@ export default function App() {
             </tbody>
           </table>
 
-          {/* ===== SECTION 7: KITCHEN ===== */}
-          <div id="sec-7" className="sh sh-a">7. Kitchen Fixtures &amp; Fittings</div>
-          <table className="st">
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th className="th4">ADC STANDARD</th>
-                <th className="th3">ADC SUPERIOR</th>
-                <th className="th2">ADC PREMIUM</th>
-                <th className="th1">ADC EXECUTIVE</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Kitchen Sink</td>
-                <td>SS single sink (ISI marked)<br /><em>Up to ₹3,000</em></td>
-                <td>SS / Granite / Carysil single or double sink<br /><em>Up to ₹6,000</em></td>
-                <td>SS or Granite-finish sink (Futura/Carysil)<br /><em>Up to ₹8,000</em></td>
-                <td>Granite-finish / Carysil premium sink<br /><em>Up to ₹10,000</em></td>
-              </tr>
-              <tr>
-                <td>Main Sink Faucet</td>
-                <td>Ess Ess / Cera or eq.<br /><em>Up to ₹1,300</em></td>
-                <td>Parryware / Hindware<br /><em>Up to ₹2,000</em></td>
-                <td>Jaquar / Roca or eq.<br /><em>Up to ₹3,500</em></td>
-                <td>Jaquar / Grohe or eq.<br /><em>Up to ₹5,000</em></td>
-              </tr>
-              <tr>
-                <td>Other Faucets &amp; Accessories</td>
-                <td>ISI marked.</td>
-                <td>Parryware / Hindware or eq.</td>
-                <td>Jaquar / Roca or eq.</td>
-                <td>Jaquar / Grohe or eq.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        {/* ===== PAGE 4: SECTION 6 (FLOORING & WALL TILING) ===== */}
-        <div className="page-block page-4">
           {/* ===== SECTION 6: FLOORING & WALL TILING ===== */}
           <div id="sec-6" className="sh sh-a">6. Flooring &amp; Wall Tiling</div>
           <table className="st">
@@ -613,6 +573,46 @@ export default function App() {
 
         {/* ===== PAGE 5: SECTIONS 8 & 9 ===== */}
         <div className="page-block page-5">
+          {/* ===== SECTION 7: KITCHEN ===== */}
+          <div id="sec-7" className="sh sh-a">7. Kitchen Fixtures &amp; Fittings</div>
+          <table className="st">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th className="th4">ADC STANDARD</th>
+                <th className="th3">ADC SUPERIOR</th>
+                <th className="th2">ADC PREMIUM</th>
+                <th className="th1">ADC EXECUTIVE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Kitchen Sink</td>
+                <td>SS single sink (ISI marked)<br /><em>Up to ₹3,000</em></td>
+                <td>SS / Granite / Carysil single or double sink<br /><em>Up to ₹6,000</em></td>
+                <td>SS or Granite-finish sink (Futura/Carysil)<br /><em>Up to ₹8,000</em></td>
+                <td>Granite-finish / Carysil premium sink<br /><em>Up to ₹10,000</em></td>
+              </tr>
+              <tr>
+                <td>Main Sink Faucet</td>
+                <td>Ess Ess / Cera or eq.<br /><em>Up to ₹1,300</em></td>
+                <td>Parryware / Hindware<br /><em>Up to ₹2,000</em></td>
+                <td>Jaquar / Roca or eq.<br /><em>Up to ₹3,500</em></td>
+                <td>Jaquar / Grohe or eq.<br /><em>Up to ₹5,000</em></td>
+              </tr>
+              <tr>
+                <td>Other Faucets &amp; Accessories</td>
+                <td>ISI marked.</td>
+                <td>Parryware / Hindware or eq.</td>
+                <td>Jaquar / Roca or eq.</td>
+                <td>Jaquar / Grohe or eq.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        {/* ===== PAGE 4: SECTION 6 (FLOORING & WALL TILING) ===== */}
+        <div className="page-block page-4">
           {/* ===== SECTION 8: BATHROOMS & PLUMBING ===== */}
           <div id="sec-8" className="sh sh-a">8. Bathrooms, Sanitary &amp; Plumbing</div>
           <table className="st">

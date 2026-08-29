@@ -423,9 +423,9 @@ export default function App() {
             <tbody>
               <tr>
                 <td>Toilet Floors</td>
-                <td>Dr. Fixit / Fosroc or equivalent — waterproofing</td>
-                <td>Dr. Fixit / Fosroc or equivalent — waterproofing</td>
-                <td>Dr. Fixit / Fosroc + chemical waterproofing system</td>
+                <td>Dr. Fixit / FOSROC or equivalent — waterproofing</td>
+                <td>Dr. Fixit / FOSROC or equivalent — waterproofing</td>
+                <td>Crystalline waterproofing (Zydex / Fosroc) + chemical waterproofing system</td>
                 <td>Dr. Fixit Krystalline + chemical waterproofing system</td>
               </tr>
               <tr>
@@ -438,7 +438,7 @@ export default function App() {
               <tr>
                 <td>Terrace Slab</td>
                 <td>Standard system + terrace screed concreting with WP component</td>
-                <td>Dr. Fixit / Fosroc + terrace screed with WP component</td>
+                <td>Dr. Fixit / FOSROC + terrace screed with WP component</td>
                 <td>Crystalline WP system + terrace screed with WP component</td>
                 <td>Crystalline + chemical system + terrace screed with WP component</td>
               </tr>

@@ -1,0 +1,106 @@
+name: Apply Approved Content Restore
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/apply-approved-content-restore.yml']
+
+permissions:
+  contents: write
+
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Restore approved finalised content
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('src/App.tsx')
+          s=p.read_text()
+
+          def replace_section(text, start_marker, end_marker, replacement):
+              a=text.index(start_marker)
+              b=text.index(end_marker, a)
+              return text[:a] + replacement + '\n\n          ' + text[b:]
+
+          sec9='''{/* ===== SECTION 9: DOORS & WINDOWS ===== */}
+          <div id="sec-9" className="sh sh-a">9. Doors &amp; Windows</div>
+          <table className="st">
+            <thead><tr><th>Item</th><th className="th4">ADC STANDARD</th><th className="th3">ADC SUPERIOR</th><th className="th2">ADC PREMIUM</th><th className="th1">ADC EXECUTIVE</th></tr></thead>
+            <tbody>
+              <tr><td>Door &amp; Window Openings Limit</td><td>Up to 10% of total room wall area per room</td><td>Up to 13% of total room wall area per room</td><td>Up to 15% of total room wall area per room</td><td>Up to 17% of total room wall area per room</td></tr>
+              <tr><td>Main Door</td><td>Teak frame 3&quot;×5&quot;; 3&apos;6&quot;×7&apos;; 1.25&quot; teak shutter; brass antique fittings; mortise lock<br /><em>Up to ₹20,000</em><br />Finish: Melamine polish</td><td>Teak frame 3&quot;×5&quot;; 3&apos;×7&apos;; laminated WP teak shutter; brass antique fittings; mortise lock<br /><em>Up to ₹30,000</em><br />Finish: Hand polish</td><td>Teak frame 3.5&quot;×5&quot;; 3&apos;6&quot;×8&apos; teak shutter; brass antique fittings &amp; hardware<br /><em>Up to ₹40,000</em><br />Finish: PU spray</td><td>Teak frame 3.5&quot;×5.5&quot;; 3&apos;6&quot;×8&apos; teak shutter; brass antique fittings &amp; hardware<br /><em>Up to ₹50,000</em><br />Finish: Premium PU spray</td></tr>
+              <tr><td>Internal / Bedroom Doors</td><td>Sal wood frame 3&quot;×4&quot;; 3&apos;×7&apos; membrane flush shutter; SS fittings &amp; mortise lock<br /><em>Up to ₹11,000/door</em></td><td>Sal wood frame 3&quot;×4&quot;; 3&apos;×7&apos; membrane flush shutter; SS fittings &amp; mortise lock<br /><em>Up to ₹12,000/door</em></td><td>Sal wood frame 3&quot;×4&quot;; 3&apos;×8&apos; veneer shutter; SS hardware<br /><em>Up to ₹13,000/door</em></td><td>Sal wood frame 3&quot;×4.5&quot;; 3&apos;×8&apos; veneer shutter; SS hardware<br /><em>Up to ₹15,000/door</em></td></tr>
+              <tr><td>Bathroom Doors</td><td>Sal wood frame; WP membrane shutter<br /><em>Up to ₹6,000/door</em></td><td>Sal wood frame; WP membrane shutter<br /><em>Up to ₹7,000/door</em></td><td>Sal wood frame; WP membrane shutter<br /><em>Up to ₹8,000/door</em></td><td>Sal wood frame; WP membrane shutter<br /><em>Up to ₹9,000/door</em></td></tr>
+              <tr><td>Pooja Room Door</td><td className="na">Not included</td><td className="na">Not included</td><td>Teak frame &amp; shutter; hand polish<br /><em>Up to ₹25,000</em></td><td>Teak; PU spray finish<br /><em>Up to ₹30,000</em></td></tr>
+              <tr><td>Terrace &amp; Utility Doors</td><td>Included<br /><em>Up to ₹4,000/door</em></td><td>Included<br /><em>Up to ₹5,000/door</em></td><td>Included<br /><em>Up to ₹6,000/door</em></td><td>Included<br /><em>Up to ₹8,000/door</em></td></tr>
+              <tr><td>Sliding Doors</td><td colSpan={4}>Not included in any package. If required, charged as an approved variation.</td></tr>
+              <tr><td>Windows</td><td>2.5-track UPVC; 6mm clear float glass; fly mesh<br /><em>~₹350/sqft</em></td><td>2.5-track UPVC; 6mm float glass; SS fly mesh<br /><em>~₹450/sqft</em></td><td>UPVC; 3-track; 6mm float glass; SS fly mesh<br /><em>~₹550/sqft</em></td><td>UPVC; 3-track; 6mm float glass; SS fly mesh<br /><em>~₹650/sqft</em></td></tr>
+              <tr><td>Ventilators</td><td>UPVC louvres / fixed float glass</td><td>UPVC part-open louvres + part-fixed float glass; exhaust fan provision</td><td>UPVC part-open louvres + part-fixed float glass; exhaust fan provision</td><td>UPVC part-open louvres + part-fixed float glass; exhaust fan provision</td></tr>
+              <tr><td>Door Hardware</td><td colSpan={2}>ISI standard SS fittings; Godrej / Link mortise locks; standard hinges &amp; tower bolts</td><td colSpan={2}>Premium SS hardware; Godrej / Yale locks; concealed hinges provision</td></tr>
+            </tbody>
+          </table>'''
+
+          sec10='''{/* ===== SECTION 10: PAINTING ===== */}
+          <div id="sec-10" className="sh sh-a">10. Painting &amp; Finishing</div>
+          <table className="st">
+            <thead><tr><th>Item</th><th className="th4">ADC STANDARD</th><th className="th3">ADC SUPERIOR</th><th className="th2">ADC PREMIUM</th><th className="th1">ADC EXECUTIVE</th></tr></thead>
+            <tbody>
+              <tr><td>Interior Walls &amp; Ceiling</td><td>2 coats putty + 1 coat primer + 2 coats Tractor Emulsion (Asian)<br />Up to 4 colour shades</td><td>2 coats Birla Putty + 1 coat primer + 2 coats Premium Emulsion (Tractor Shyne)<br />Up to 4 colour shades</td><td>2 coats Birla putty + 1 coat primer + 2 coats Asian Royale Emulsion<br />Up to 5 colour shades</td><td>2 coats putty + 1 coat primer + 2 coats Royale Emulsion + 1 textured/Royale Play wall per room<br />Up to 5 colour shades for project</td></tr>
+              <tr><td>Exterior Walls</td><td>1 coat Asian Primer + 2 coats Apex Weather Shield</td><td>1 coat Asian Primer + 2 coats Apex Advance Weatherproof</td><td>1 coat primer + 2 coats Apex Ultima Protection</td><td>1 coat primer + 2 coats Apex Ultima Protection</td></tr>
+              <tr><td>MS Work</td><td colSpan={4}>Anti-corrosion primer + 2 coats enamel paint (Asian Satin Enamel or equiv.) — all railings, gates, grills &amp; MS items</td></tr>
+              <tr><td>Main Door Finish</td><td>Melamine polish</td><td>Hand polish</td><td>PU spray finish</td><td>Premium PU spray finish</td></tr>
+              <tr><td>Internal Door Finish</td><td>Enamel painted</td><td>Enamel painted</td><td>PU painted</td><td>PU spray painted</td></tr>
+              <tr><td>Feature / Texture Wall</td><td>Extra — variation</td><td>Extra — variation</td><td>1 selected feature wall per common area</td><td>1 textured wall per room included (Royale Play)</td></tr>
+            </tbody>
+          </table>'''
+
+          sec11='''{/* ===== SECTION 11: ELECTRICAL ===== */}
+          <div id="sec-11" className="sh sh-a">11. Electrical Works</div>
+          <table className="st">
+            <thead><tr><th>Item</th><th className="th4">ADC STANDARD</th><th className="th3">ADC SUPERIOR</th><th className="th2">ADC PREMIUM</th><th className="th1">ADC EXECUTIVE</th></tr></thead>
+            <tbody>
+              <tr><td>Wiring</td><td>Multi-strand copper ISI standard wires — Anchor / Polycab</td><td>Multi-strand copper FR — Anchor / Polycab</td><td>Multi-strand copper FRLS — Polycab Green / Havells</td><td>Multi-strand copper FRLS — Polycab Green / Havells</td></tr>
+              <tr><td>Switches &amp; Sockets</td><td>Modular — HiFi / GM / Goldmedal or equiv.</td><td>GM(G9) / Anchor roma</td><td>Legrand Allzy / Havells Fabio</td><td>Legrand mylinc / Havells Coral</td></tr>
+              <tr><td>Living &amp; Dining Points</td><td>2 fan, 3 light, 3×5A, 1 TV cable point</td><td>2 fan, 4 light, 3×5A, 1 TV cable, 2-way switch</td><td>2 fan, 5 light, 5×5A, 1 TV cable, 2-way switch</td><td>2 fan, 6 light, 5×5A, 1 TV cable, 2-way switch</td></tr>
+              <tr><td>Bedroom Points</td><td>1 fan, 2 light, 2×5A plug points</td><td>1 fan, 3 light, 2×5A, 1×16A AC socket; 2-way switch (duplex)</td><td>1 fan, 3 light, 2×5A, 1×16A AC socket; 2-way switch (duplex)</td><td>1 fan, 3 light, 2×5A, 1×16A AC socket; 2-way switch (duplex)</td></tr>
+              <tr><td>Kitchen Points</td><td>2 light, 2×15A (fridge, mixer), 3×5A (microwave, WP, misc)</td><td>2 light, 2×15A, (fridge, mixer), 3×5A (microwave, WP, misc)</td><td>2 light, 3×15A,(Hob, fridge, mixer), 3×5A (microwave, WP, misc)</td><td>2 light, 4×15A, (Hob, fridge, mixer), 3×5A (microwave, WP, misc)</td></tr>
+              <tr><td>Bathroom Points</td><td>2 light, 1 geyser (15A), 1×5A exhaust fan</td><td>2 light, 1 geyser (15A), 1×5A exhaust, 1 shaver; 2-way switch</td><td>2 light, 1 geyser (15A), 2×5A exhaust, 1 shaver, 1 mirror light; 2-way</td><td>2 light, 1 geyser (15A), 2×5A exhaust, 1 shaver, 1 mirror light; 2-way</td></tr>
+              <tr><td>Corridor / Parking</td><td>Up to 4 light points at suitable locations</td><td>Up to 6 light points; 2-way switch</td><td>Up to 7 light points; 2-way switch</td><td>Up to 8 light points; 2-way switch</td></tr>
+              <tr><td>Exterior / Gate Points</td><td>4 SLP + 5A for carpark &amp; gate</td><td>5 SLP + 5A; 2-way; UPS lighting provision; included in package</td><td>Included in package — enhanced</td><td>Included in package — enhanced</td></tr>
+              <tr><td>Distribution Board (DB)</td><td>1 DB per floor — Cona / Hifi or eq.</td><td>1 DB per floor — IndoAsian / Anchor or eq.</td><td>1 DB per floor — Schneider / Legrand or eq.</td><td>1 DB per floor — Schneider / Legrand or eq.</td></tr>
+              <tr><td>Calling Bell</td><td colSpan={4}>1 calling bell provision per dwelling unit</td></tr>
+              <tr><td>Earthing Pits</td><td>Not included (chargeable as actual)</td><td>1 earthing pit</td><td>1 earthing pit</td><td>2 earthing pits</td></tr>
+              <tr><td>UPS Wiring Provision</td><td>Not included (chargeable as actual)</td><td>UPS wiring provision included</td><td>UPS wiring provision included</td><td>Full UPS board provision included</td></tr>
+              <tr><td>EV Charging Point</td><td>Not included (chargeable as actual)</td><td>1 EV charging point in parking</td><td>1 EV charging point in parking</td><td>2 EV charging points in parking</td></tr>
+            </tbody>
+          </table>'''
+
+          s=replace_section(s,'{/* ===== SECTION 9: DOORS & WINDOWS ===== */}','{/* ===== PAGE 6: SECTIONS 10, 11 & 12 ===== */}',sec9)
+          s=replace_section(s,'{/* ===== SECTION 10: PAINTING ===== */}','{/* ===== SECTION 11: ELECTRICAL ===== */}',sec10)
+          s=replace_section(s,'{/* ===== SECTION 11: ELECTRICAL ===== */}','{/* ===== SECTION 12: WATER STORAGE ===== */}',sec11)
+
+          # Approved boundaries / safeguards.
+          assert 'CPVC SDR 11 — Ashirwad / Supreme / Astral or equivalent.' in s
+          assert 'CPVC Class B (4 kg) SDR 11' not in s
+          assert 'Dr. Fixit / Fosroc + chemical waterproofing system' in s  # keep current Section 5
+          assert s.index('id="sec-7"') < s.index('id="sec-6"')
+          assert 'Architectural drawing' in s and 'MEP Drawing' in s
+          assert 'Acme Designs & Constructions  ·  www.adc.builders' not in s  # keep intentional last-page deletion
+
+          p.write_text(s)
+          PY
+      - name: Build verification
+        run: npm install && npm run build
+      - name: Commit approved restoration
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/App.tsx
+          git commit -m "Restore finalised 13-page content with approved exceptions"
+          git push

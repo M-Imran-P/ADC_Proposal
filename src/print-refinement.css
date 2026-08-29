@@ -1,14 +1,12 @@
 /*
  * ADC Proposal - print-only refinement layer
  * Purpose: preserve the existing proposal content and typography while making
- * the seven explicit page blocks export more predictably to A4/PDF.
- * No proposal wording is changed by this file.
+ * the seven explicit page blocks export predictably to A4/PDF.
+ * No proposal wording, font size, font family or text width is changed here.
  */
 
 @media print {
-  /* Keep the authored seven-page structure, but do not vertically stretch
-     content inside each page. The base stylesheet already controls A4 sizing,
-     typography and page-specific density. */
+  /* Keep the authored seven-page structure without artificial vertical stretch. */
   .page-block {
     display: block !important;
     justify-content: initial !important;
@@ -36,7 +34,7 @@
     page-break-after: auto !important;
   }
 
-  /* Never separate a section title from the table/card immediately following it. */
+  /* Never separate a section title from the content immediately following it. */
   .sh {
     break-after: avoid-page !important;
     page-break-after: avoid !important;
@@ -51,8 +49,7 @@
     page-break-before: avoid !important;
   }
 
-  /* Preserve complete rows/cards and prevent browser-created word splitting.
-     Normal wrapping at spaces remains available; words themselves are not split. */
+  /* Preserve complete rows/cards and prevent browser-created word splitting. */
   .st tr,
   .ct tr,
   .mr-wrap tr,
@@ -80,6 +77,95 @@
     word-break: normal !important;
     overflow-wrap: normal !important;
     hyphens: none !important;
+  }
+
+  /*
+   * Vertical-only consolidation for the three authored page blocks that exceed
+   * one A4 sheet in Chromium. Font sizes, line heights, column widths and text
+   * wrapping are intentionally left exactly as defined in index.css.
+   */
+  .page-2 .sh,
+  .page-6 .sh {
+    margin-top: 4px !important;
+    margin-bottom: 2px !important;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+  }
+
+  .page-2 .st,
+  .page-6 .st {
+    margin-bottom: 3px !important;
+  }
+
+  .page-2 .st th,
+  .page-2 .st td,
+  .page-6 .st th,
+  .page-6 .st td {
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+  }
+
+  .page-7 .sh {
+    margin-top: 3px !important;
+    margin-bottom: 1px !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+  }
+
+  .page-7 .st {
+    margin-bottom: 2px !important;
+  }
+
+  .page-7 .st th,
+  .page-7 .st td {
+    padding-top: 1.5px !important;
+    padding-bottom: 1.5px !important;
+  }
+
+  .page-7 .qa-grid {
+    gap: 4px !important;
+    margin-bottom: 3px !important;
+  }
+
+  .page-7 .qa-card {
+    padding-top: 4px !important;
+    padding-bottom: 4px !important;
+  }
+
+  .page-7 .qa-card h5 {
+    margin-bottom: 2px !important;
+    padding-bottom: 1px !important;
+  }
+
+  .page-7 .qa-item {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .page-7 .info-box,
+  .page-7 .excl-box,
+  .page-7 .tc-box {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .page-7 .excl-grid {
+    gap: 1px 10px !important;
+  }
+
+  .page-7 .xi {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .page-7 .tc-box h4,
+  .page-7 .excl-box h4 {
+    margin-bottom: 3px !important;
+  }
+
+  .page-7 .tc-li {
+    margin-bottom: 1px !important;
   }
 
   /* Keep the browser from appending URLs after links in print. */

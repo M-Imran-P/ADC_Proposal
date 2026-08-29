@@ -1,6 +1,5 @@
 /* ADC Proposal - print-only refinement. No proposal wording or font sizing is changed. */
 @media print {
-  /* Let authored sections use available A4 space before starting another sheet. */
   .page-block,
   .page-block.page-1,
   .page-block.page-2,
@@ -21,35 +20,34 @@
     page-break-inside:auto!important;
   }
 
-  /* The cover used to force a page break and leave a large blank area. */
   .cov,
   .cov.page-block {
     break-after:auto!important;
     page-break-after:auto!important;
   }
 
-  /* Controlled logical break: Quality Assurance begins a fresh sheet.
-     This balances the closing material and produces a true seven-page A4 set. */
+  /* Controlled seven-page pagination using logical section boundaries. */
   #sec-14 {
     break-before:page!important;
     page-break-before:always!important;
   }
+  #sec-exclusions {
+    break-before:page!important;
+    page-break-before:always!important;
+  }
 
-  /* Keep headings with their following content and keep individual rows/cards intact. */
   .sh { break-after:avoid-page!important; page-break-after:avoid!important; }
   .st tr,.ct tr,.mr-wrap tr,.qa-card,.pos-card,.info-box,.excl-box,.wi,.tc-li {
     break-inside:avoid!important;
     page-break-inside:avoid!important;
   }
 
-  /* Preserve wording and prevent artificial mid-word wrapping. */
   .st td,.st th,.ct td,.ct th,.mr-wrap td,.mr-wrap th,.cov-sub,.cov-date,.cov-overview-item,.xi,.tc-li {
     word-break:normal!important;
     overflow-wrap:normal!important;
     hyphens:none!important;
   }
 
-  /* Remove only excess vertical print whitespace; typography remains unchanged. */
   .sh { margin-top:3px!important; margin-bottom:1px!important; padding-top:2px!important; padding-bottom:2px!important; }
   .st { margin-bottom:3px!important; }
   .st th,.st td { padding-top:2px!important; padding-bottom:2px!important; }

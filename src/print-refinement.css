@@ -63,16 +63,16 @@
   .page-1 #sec-1 { margin-top:14px!important; }
 
   /* Page 7: use the available A4 depth without changing text size or wording. */
-  .page-7 #sec-15 { margin-top:7px!important; margin-bottom:4px!important; padding-top:5px!important; padding-bottom:5px!important; }
-  .page-7 .info-box { padding-top:10px!important; padding-bottom:10px!important; margin-bottom:8px!important; line-height:1.62!important; }
-  .page-7 .excl-box { padding-top:10px!important; padding-bottom:10px!important; margin-bottom:8px!important; }
-  .page-7 .excl-box h4 { margin-bottom:6px!important; }
-  .page-7 .excl-grid { gap:3px 10px!important; }
-  .page-7 .xi { padding-top:2px!important; padding-bottom:2px!important; line-height:1.48!important; }
-  .page-7 .tc-box { padding-top:10px!important; padding-bottom:10px!important; margin-bottom:7px!important; }
-  .page-7 .tc-box h4 { margin-bottom:6px!important; }
-  .page-7 .tc-li { margin-bottom:3px!important; line-height:1.52!important; }
-  .page-7 .print-footer { margin-top:8px!important; padding-top:7px!important; }
+  .page-7 #sec-15 { margin-top:8px!important; margin-bottom:5px!important; padding-top:6px!important; padding-bottom:6px!important; }
+  .page-7 .info-box { padding-top:14px!important; padding-bottom:14px!important; margin-bottom:10px!important; line-height:1.64!important; }
+  .page-7 .excl-box { padding-top:13px!important; padding-bottom:13px!important; margin-bottom:10px!important; }
+  .page-7 .excl-box h4 { margin-bottom:8px!important; }
+  .page-7 .excl-grid { gap:4px 10px!important; }
+  .page-7 .xi { padding-top:3px!important; padding-bottom:3px!important; line-height:1.5!important; }
+  .page-7 .tc-box { padding-top:13px!important; padding-bottom:13px!important; margin-bottom:8px!important; }
+  .page-7 .tc-box h4 { margin-bottom:8px!important; }
+  .page-7 .tc-li { margin-bottom:6px!important; line-height:1.54!important; }
+  .page-7 .print-footer { margin-top:10px!important; padding-top:8px!important; }
 
   /* Print/PDF optimisation: preserve Natural Blues while removing screen-only compositing. */
   *, *::before, *::after {

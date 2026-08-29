@@ -44,7 +44,8 @@ jobs:
               <tr><td>Ventilators</td><td>UPVC louvres / fixed float glass</td><td>UPVC part-open louvres + part-fixed float glass; exhaust fan provision</td><td>UPVC part-open louvres + part-fixed float glass; exhaust fan provision</td><td>UPVC part-open louvres + part-fixed float glass; exhaust fan provision</td></tr>
               <tr><td>Door Hardware</td><td colSpan={2}>ISI standard SS fittings; Godrej / Link mortise locks; standard hinges &amp; tower bolts</td><td colSpan={2}>Premium SS hardware; Godrej / Yale locks; concealed hinges provision</td></tr>
             </tbody>
-          </table>'''
+          </table>
+        </div>'''
 
           sec10='''{/* ===== SECTION 10: PAINTING ===== */}
           <div id="sec-10" className="sh sh-a">10. Painting &amp; Finishing</div>

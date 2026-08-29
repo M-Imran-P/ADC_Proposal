@@ -697,216 +697,56 @@ export default function App() {
           {/* ===== SECTION 9: DOORS & WINDOWS ===== */}
           <div id="sec-9" className="sh sh-a">9. Doors &amp; Windows</div>
           <table className="st">
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th className="th4">ADC STANDARD</th>
-                <th className="th3">ADC SUPERIOR</th>
-                <th className="th2">ADC PREMIUM</th>
-                <th className="th1">ADC EXECUTIVE</th>
-              </tr>
-            </thead>
+            <thead><tr><th>Item</th><th className="th4">ADC STANDARD</th><th className="th3">ADC SUPERIOR</th><th className="th2">ADC PREMIUM</th><th className="th1">ADC EXECUTIVE</th></tr></thead>
             <tbody>
-              <tr>
-                <td>Door &amp; Window Openings Limit</td>
-                <td>Up to 10% of total room wall area per room</td>
-                <td>Up to 13% of total room wall area per room</td>
-                <td>Up to 15% of total room wall area per room</td>
-                <td>Up to 17% of total room wall area per room</td>
-              </tr>
-              <tr>
-                <td>Main Door</td>
-                <td>
-                  Teak frame 3&quot;×5&quot;; 3&apos;6&quot;×7&apos;; 1.25&quot; teak shutter; brass antique fittings; mortise lock<br />
-                  <em>Up to ₹20,000</em><br />
-                  Finish: Melamine polish
-                </td>
-                <td>
-                  Teak frame 3&quot;×5&quot;; 3&apos;×7&apos;; laminated WP teak shutter; brass antique fittings; mortise lock<br />
-                  <em>Up to ₹30,000</em><br />
-                  Finish: Hand polish
-                </td>
-                <td>
-                  Teak frame 3.5&quot;×5&quot;; 3&apos;6&quot;×8&apos; teak shutter; brass antique fittings &amp; hardware<br />
-                  <em>Up to ₹40,000</em><br />
-                  Finish: PU spray
-                </td>
-                <td>
-                  Teak frame 4&quot;×6&quot;; 4&apos;×8&apos; Burma/Ghana teak; digital biometric smart lock + brass antique fittings<br />
-                  <em>Up to ₹50,000</em><br />
-                  Finish: PU Polish
-                </td>
-              </tr>
-              <tr>
-                <td>Internal Doors</td>
-                <td>
-                  Sal frame 3&quot;×4&quot;; Flush / Membrane shutter 30mm; SS lock &amp; aldrops<br />
-                  <em>Up to ₹7,000/door</em>
-                </td>
-                <td>
-                  Sal / Honne / Red Mirandi frame 3&quot;×4&quot;; Moulded skin / laminated shutter 32mm<br />
-                  <em>Up to ₹10,000/door</em>
-                </td>
-                <td>
-                  Honne / Teak frame 3&quot;×4&quot;; Veneer-finished shutter 35mm; Europa / Godrej mortise lock<br />
-                  <em>Up to ₹12,000/door</em>
-                </td>
-                <td>
-                  Teak / Honne frame 3.5&quot;×5&quot;; Veneer-finished shutter 35mm; premium designer hardware<br />
-                  <em>Up to ₹14,000/door</em>
-                </td>
-              </tr>
-              <tr>
-                <td>Bathroom Doors</td>
-                <td>Sal frame 3&quot;×4&quot;; Waterproof shutter with laminate; cylindrical lock</td>
-                <td>Sal/Honne frame 3&quot;×4&quot;; Waterproof laminated shutter; cylindrical lock</td>
-                <td>Honne/Granite frame; Waterproof FRP / laminated shutter; premium lock</td>
-                <td>Granite frame; Premium FRP / waterproof laminated designer shutter</td>
-              </tr>
-              <tr>
-                <td>Windows</td>
-                <td>2-track UPVC sliding with 5mm clear float glass + MS grill</td>
-                <td>2.5-track UPVC sliding with mosquito mesh + 5mm glass + MS grill</td>
-                <td>2.5/3-track UPVC (Prominance/Kommerling) + mosquito mesh + 5mm toughened/tinted glass</td>
-                <td>3-track UPVC / Thermal aluminium + mosquito mesh + 6mm toughened/tinted glass + designer grill</td>
-              </tr>
-              <tr>
-                <td>Ventilators</td>
-                <td>Aluminium / UPVC louvers with pinhead glass + provision for exhaust</td>
-                <td>UPVC louvers with pinhead glass + exhaust provision</td>
-                <td>UPVC top-hung / louvers + exhaust provision</td>
-                <td>UPVC top-hung / louvers + exhaust provision</td>
-              </tr>
+              <tr><td>Door &amp; Window Openings Limit</td><td>Up to 10% of total room wall area per room</td><td>Up to 13% of total room wall area per room</td><td>Up to 15% of total room wall area per room</td><td>Up to 17% of total room wall area per room</td></tr>
+              <tr><td>Main Door</td><td>Teak frame 3&quot;×5&quot;; 3&apos;6&quot;×7&apos;; 1.25&quot; teak shutter; brass antique fittings; mortise lock<br /><em>Up to ₹20,000</em><br />Finish: Melamine polish</td><td>Teak frame 3&quot;×5&quot;; 3&apos;×7&apos;; laminated WP teak shutter; brass antique fittings; mortise lock<br /><em>Up to ₹30,000</em><br />Finish: Hand polish</td><td>Teak frame 3.5&quot;×5&quot;; 3&apos;6&quot;×8&apos; teak shutter; brass antique fittings &amp; hardware<br /><em>Up to ₹40,000</em><br />Finish: PU spray</td><td>Teak frame 3.5&quot;×5.5&quot;; 3&apos;6&quot;×8&apos; teak shutter; brass antique fittings &amp; hardware<br /><em>Up to ₹50,000</em><br />Finish: Premium PU spray</td></tr>
+              <tr><td>Internal / Bedroom Doors</td><td>Sal wood frame 3&quot;×4&quot;; 3&apos;×7&apos; membrane flush shutter; SS fittings &amp; mortise lock<br /><em>Up to ₹11,000/door</em></td><td>Sal wood frame 3&quot;×4&quot;; 3&apos;×7&apos; membrane flush shutter; SS fittings &amp; mortise lock<br /><em>Up to ₹12,000/door</em></td><td>Sal wood frame 3&quot;×4&quot;; 3&apos;×8&apos; veneer shutter; SS hardware<br /><em>Up to ₹13,000/door</em></td><td>Sal wood frame 3&quot;×4.5&quot;; 3&apos;×8&apos; veneer shutter; SS hardware<br /><em>Up to ₹15,000/door</em></td></tr>
+              <tr><td>Bathroom Doors</td><td>Sal wood frame; WP membrane shutter<br /><em>Up to ₹6,000/door</em></td><td>Sal wood frame; WP membrane shutter<br /><em>Up to ₹7,000/door</em></td><td>Sal wood frame; WP membrane shutter<br /><em>Up to ₹8,000/door</em></td><td>Sal wood frame; WP membrane shutter<br /><em>Up to ₹9,000/door</em></td></tr>
+              <tr><td>Pooja Room Door</td><td className="na">Not included</td><td className="na">Not included</td><td>Teak frame &amp; shutter; hand polish<br /><em>Up to ₹25,000</em></td><td>Teak; PU spray finish<br /><em>Up to ₹30,000</em></td></tr>
+              <tr><td>Terrace &amp; Utility Doors</td><td>Included<br /><em>Up to ₹4,000/door</em></td><td>Included<br /><em>Up to ₹5,000/door</em></td><td>Included<br /><em>Up to ₹6,000/door</em></td><td>Included<br /><em>Up to ₹8,000/door</em></td></tr>
+              <tr><td>Sliding Doors</td><td colSpan={4}>Not included in any package. If required, charged as an approved variation.</td></tr>
+              <tr><td>Windows</td><td>2.5-track UPVC; 6mm clear float glass; fly mesh<br /><em>~₹350/sqft</em></td><td>2.5-track UPVC; 6mm float glass; SS fly mesh<br /><em>~₹450/sqft</em></td><td>UPVC; 3-track; 6mm float glass; SS fly mesh<br /><em>~₹550/sqft</em></td><td>UPVC; 3-track; 6mm float glass; SS fly mesh<br /><em>~₹650/sqft</em></td></tr>
+              <tr><td>Ventilators</td><td>UPVC louvres / fixed float glass</td><td>UPVC part-open louvres + part-fixed float glass; exhaust fan provision</td><td>UPVC part-open louvres + part-fixed float glass; exhaust fan provision</td><td>UPVC part-open louvres + part-fixed float glass; exhaust fan provision</td></tr>
+              <tr><td>Door Hardware</td><td colSpan={2}>ISI standard SS fittings; Godrej / Link mortise locks; standard hinges &amp; tower bolts</td><td colSpan={2}>Premium SS hardware; Godrej / Yale locks; concealed hinges provision</td></tr>
             </tbody>
           </table>
         </div>
 
-        {/* ===== PAGE 6: SECTIONS 10, 11 & 12 ===== */}
+          {/* ===== PAGE 6: SECTIONS 10, 11 & 12 ===== */}
         <div className="page-block page-6">
           {/* ===== SECTION 10: PAINTING ===== */}
           <div id="sec-10" className="sh sh-a">10. Painting &amp; Finishing</div>
           <table className="st">
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th className="th4">ADC STANDARD</th>
-                <th className="th3">ADC SUPERIOR</th>
-                <th className="th2">ADC PREMIUM</th>
-                <th className="th1">ADC EXECUTIVE</th>
-              </tr>
-            </thead>
+            <thead><tr><th>Item</th><th className="th4">ADC STANDARD</th><th className="th3">ADC SUPERIOR</th><th className="th2">ADC PREMIUM</th><th className="th1">ADC EXECUTIVE</th></tr></thead>
             <tbody>
-              <tr>
-                <td>Interior Walls</td>
-                <td>1 coat primer + 2 coats Birla/JK putty + 2 coats Asian Paints Tractor Emulsion</td>
-                <td>1 coat primer + 2 coats Birla/JK putty + 2 coats Asian Paints Premium Emulsion</td>
-                <td>1 coat primer + 2 coats Birla/JK putty + 2 coats Asian Paints Royale Luxury Emulsion</td>
-                <td>1 coat primer + 2 coats Birla/JK putty + 2 coats Asian Royale Matt/Shyne / PU finish</td>
-              </tr>
-              <tr>
-                <td>Exterior Walls</td>
-                <td>1 coat exterior primer + 2 coats Asian Paints Ace / Apex</td>
-                <td>1 coat primer + 2 coats Asian Paints Apex weather-proof emulsion</td>
-                <td>1 coat primer + 2 coats Asian Paints Apex Ultima weather-proof emulsion</td>
-                <td>1 coat primer + 2 coats Asian Paints Apex Ultima Protek (10-yr warranty) / texture finish</td>
-              </tr>
-              <tr>
-                <td>Ceiling</td>
-                <td>1 coat primer + 2 coats Tractor Emulsion</td>
-                <td>1 coat primer + 2 coats Tractor Emulsion</td>
-                <td>1 coat primer + 2 coats Premium Emulsion</td>
-                <td>1 coat primer + 2 coats Royale / Premium Emulsion</td>
-              </tr>
-              <tr>
-                <td>Metal &amp; Wood Works</td>
-                <td>1 coat red oxide primer + 2 coats synthetic enamel paint (Asian/Berger)</td>
-                <td>1 coat red oxide + 2 coats synthetic enamel paint (Asian/Berger)</td>
-                <td>1 coat primer + 2 coats premium enamel paint (Asian/Berger)</td>
-                <td>1 coat primer + 2 coats premium enamel / PU spray on metal</td>
-              </tr>
+              <tr><td>Interior Walls &amp; Ceiling</td><td>2 coats putty + 1 coat primer + 2 coats Tractor Emulsion (Asian)<br />Up to 4 colour shades</td><td>2 coats Birla Putty + 1 coat primer + 2 coats Premium Emulsion (Tractor Shyne)<br />Up to 4 colour shades</td><td>2 coats Birla putty + 1 coat primer + 2 coats Asian Royale Emulsion<br />Up to 5 colour shades</td><td>2 coats putty + 1 coat primer + 2 coats Royale Emulsion + 1 textured/Royale Play wall per room<br />Up to 5 colour shades for project</td></tr>
+              <tr><td>Exterior Walls</td><td>1 coat Asian Primer + 2 coats Apex Weather Shield</td><td>1 coat Asian Primer + 2 coats Apex Advance Weatherproof</td><td>1 coat primer + 2 coats Apex Ultima Protection</td><td>1 coat primer + 2 coats Apex Ultima Protection</td></tr>
+              <tr><td>MS Work</td><td colSpan={4}>Anti-corrosion primer + 2 coats enamel paint (Asian Satin Enamel or equiv.) — all railings, gates, grills &amp; MS items</td></tr>
+              <tr><td>Main Door Finish</td><td>Melamine polish</td><td>Hand polish</td><td>PU spray finish</td><td>Premium PU spray finish</td></tr>
+              <tr><td>Internal Door Finish</td><td>Enamel painted</td><td>Enamel painted</td><td>PU painted</td><td>PU spray painted</td></tr>
+              <tr><td>Feature / Texture Wall</td><td>Extra — variation</td><td>Extra — variation</td><td>1 selected feature wall per common area</td><td>1 textured wall per room included (Royale Play)</td></tr>
             </tbody>
           </table>
 
           {/* ===== SECTION 11: ELECTRICAL ===== */}
           <div id="sec-11" className="sh sh-a">11. Electrical Works</div>
           <table className="st">
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th className="th4">ADC STANDARD</th>
-                <th className="th3">ADC SUPERIOR</th>
-                <th className="th2">ADC PREMIUM</th>
-                <th className="th1">ADC EXECUTIVE</th>
-              </tr>
-            </thead>
+            <thead><tr><th>Item</th><th className="th4">ADC STANDARD</th><th className="th3">ADC SUPERIOR</th><th className="th2">ADC PREMIUM</th><th className="th1">ADC EXECUTIVE</th></tr></thead>
             <tbody>
-              <tr>
-                <td>Wires &amp; Cables</td>
-                <td>Finolex / Anchor / Polycab — FRLS</td>
-                <td>Finolex / Anchor / Polycab — FRLS</td>
-                <td>Finolex / Havells / Polycab — FRLSH</td>
-                <td>Finolex / Havells / RR Kabel — FRLSH / ZHFR</td>
-              </tr>
-              <tr>
-                <td>Switches &amp; Plates</td>
-                <td>Anchor Rider / GreatWhite or equiv.</td>
-                <td>Anchor Roma / Legrand Mylinc or equiv.</td>
-                <td>Legrand Arteor / Schneider AvatarOn or equiv.</td>
-                <td>Legrand Arteor / Schneider AvatarOn / touch modular switches</td>
-              </tr>
-              <tr>
-                <td>Conduit Pipes</td>
-                <td colSpan={4}>Heavy-duty VIP / National / Precision PVC concealed conduits with pull wires</td>
-              </tr>
-              <tr>
-                <td>Distribution Board (DB)</td>
-                <td>Standard DB with MCB (IndoAsian/Anchor)</td>
-                <td>Legrand / Schneider DB with MCB &amp; ELCB/RCCB</td>
-                <td>Legrand / Schneider DB with MCB, RCCB &amp; phase isolator</td>
-                <td>Legrand / Schneider DB with MCB, RCCB, phase isolator &amp; surge protector</td>
-              </tr>
-              <tr>
-                <td>AC Points</td>
-                <td>Provision for Master Bedroom only</td>
-                <td>Provision for all Bedrooms</td>
-                <td>Provision for all Bedrooms + Living Room</td>
-                <td>Provision for all Bedrooms, Living, Dining &amp; Home Theatre</td>
-              </tr>
-              <tr>
-                <td>Geyser &amp; Chimney Points</td>
-                <td>All bathrooms (1 point each) + Kitchen chimney</td>
-                <td>All bathrooms + Kitchen chimney + Hob</td>
-                <td>All bathrooms + Kitchen chimney + Hob + Dishwasher</td>
-                <td>All bathrooms + Kitchen chimney + Hob + Dishwasher + RO</td>
-              </tr>
-              <tr>
-                <td>EV Charging Point</td>
-                <td className="na">Not included</td>
-                <td>1 point in parking (16A)</td>
-                <td>1 dedicated fast-charging provision (32A) in parking</td>
-                <td>1 dedicated fast-charging point (32A) in parking + second standard point</td>
-              </tr>
-              <tr>
-                <td>UPS / Inverter Provision</td>
-                <td>Wiring conduit provision to 1 central point</td>
-                <td>Dedicated wiring with bypass switch to all light/fan points</td>
-                <td>Dedicated wiring with bypass switch + separate battery space</td>
-                <td>Dedicated wiring + smart inverter integration point</td>
-              </tr>
-              <tr>
-                <td>TV &amp; Data Points</td>
-                <td>Living room (1 TV point)</td>
-                <td>Living + Master Bedroom (TV + Data)</td>
-                <td>Living + all Bedrooms (TV + RJ45 Data)</td>
-                <td>All rooms (TV + Cat6 Data) + centralized Wi-Fi access point conduit</td>
-              </tr>
-              <tr>
-                <td>Earthing</td>
-                <td>Standard chemical / charcoal earthing pit (1 no.)</td>
-                <td>Chemical earth pit (2 nos. — 1 for power, 1 for lighting)</td>
-                <td>Copper plate / pipe chemical earth pit (2 nos.)</td>
-                <td>Advanced chemical earth pit (3 nos. — Power, Light &amp; Sensitive Electronics)</td>
-              </tr>
+              <tr><td>Wiring</td><td>Multi-strand copper ISI standard wires — Anchor / Polycab</td><td>Multi-strand copper FR — Anchor / Polycab</td><td>Multi-strand copper FRLS — Polycab Green / Havells</td><td>Multi-strand copper FRLS — Polycab Green / Havells</td></tr>
+              <tr><td>Switches &amp; Sockets</td><td>Modular — HiFi / GM / Goldmedal or equiv.</td><td>GM(G9) / Anchor roma</td><td>Legrand Allzy / Havells Fabio</td><td>Legrand mylinc / Havells Coral</td></tr>
+              <tr><td>Living &amp; Dining Points</td><td>2 fan, 3 light, 3×5A, 1 TV cable point</td><td>2 fan, 4 light, 3×5A, 1 TV cable, 2-way switch</td><td>2 fan, 5 light, 5×5A, 1 TV cable, 2-way switch</td><td>2 fan, 6 light, 5×5A, 1 TV cable, 2-way switch</td></tr>
+              <tr><td>Bedroom Points</td><td>1 fan, 2 light, 2×5A plug points</td><td>1 fan, 3 light, 2×5A, 1×16A AC socket; 2-way switch (duplex)</td><td>1 fan, 3 light, 2×5A, 1×16A AC socket; 2-way switch (duplex)</td><td>1 fan, 3 light, 2×5A, 1×16A AC socket; 2-way switch (duplex)</td></tr>
+              <tr><td>Kitchen Points</td><td>2 light, 2×15A (fridge, mixer), 3×5A (microwave, WP, misc)</td><td>2 light, 2×15A, (fridge, mixer), 3×5A (microwave, WP, misc)</td><td>2 light, 3×15A,(Hob, fridge, mixer), 3×5A (microwave, WP, misc)</td><td>2 light, 4×15A, (Hob, fridge, mixer), 3×5A (microwave, WP, misc)</td></tr>
+              <tr><td>Bathroom Points</td><td>2 light, 1 geyser (15A), 1×5A exhaust fan</td><td>2 light, 1 geyser (15A), 1×5A exhaust, 1 shaver; 2-way switch</td><td>2 light, 1 geyser (15A), 2×5A exhaust, 1 shaver, 1 mirror light; 2-way</td><td>2 light, 1 geyser (15A), 2×5A exhaust, 1 shaver, 1 mirror light; 2-way</td></tr>
+              <tr><td>Corridor / Parking</td><td>Up to 4 light points at suitable locations</td><td>Up to 6 light points; 2-way switch</td><td>Up to 7 light points; 2-way switch</td><td>Up to 8 light points; 2-way switch</td></tr>
+              <tr><td>Exterior / Gate Points</td><td>4 SLP + 5A for carpark &amp; gate</td><td>5 SLP + 5A; 2-way; UPS lighting provision; included in package</td><td>Included in package — enhanced</td><td>Included in package — enhanced</td></tr>
+              <tr><td>Distribution Board (DB)</td><td>1 DB per floor — Cona / Hifi or eq.</td><td>1 DB per floor — IndoAsian / Anchor or eq.</td><td>1 DB per floor — Schneider / Legrand or eq.</td><td>1 DB per floor — Schneider / Legrand or eq.</td></tr>
+              <tr><td>Calling Bell</td><td colSpan={4}>1 calling bell provision per dwelling unit</td></tr>
+              <tr><td>Earthing Pits</td><td>Not included (chargeable as actual)</td><td>1 earthing pit</td><td>1 earthing pit</td><td>2 earthing pits</td></tr>
+              <tr><td>UPS Wiring Provision</td><td>Not included (chargeable as actual)</td><td>UPS wiring provision included</td><td>UPS wiring provision included</td><td>Full UPS board provision included</td></tr>
+              <tr><td>EV Charging Point</td><td>Not included (chargeable as actual)</td><td>1 EV charging point in parking</td><td>1 EV charging point in parking</td><td>2 EV charging points in parking</td></tr>
             </tbody>
           </table>
 

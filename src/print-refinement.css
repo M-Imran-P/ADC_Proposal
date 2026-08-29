@@ -61,5 +61,53 @@
   .page-1 .cov-tiers { margin-top:7px!important; }
   .page-1 .cov-overview-box { margin-top:12px!important; margin-bottom:12px!important; }
   .page-1 #sec-1 { margin-top:14px!important; }
+
+  /* Page 7: use the available A4 depth without changing text size or wording. */
+  .page-7 #sec-15 { margin-top:7px!important; margin-bottom:4px!important; padding-top:5px!important; padding-bottom:5px!important; }
+  .page-7 .info-box { padding-top:10px!important; padding-bottom:10px!important; margin-bottom:8px!important; line-height:1.62!important; }
+  .page-7 .excl-box { padding-top:10px!important; padding-bottom:10px!important; margin-bottom:8px!important; }
+  .page-7 .excl-box h4 { margin-bottom:6px!important; }
+  .page-7 .excl-grid { gap:3px 10px!important; }
+  .page-7 .xi { padding-top:2px!important; padding-bottom:2px!important; line-height:1.48!important; }
+  .page-7 .tc-box { padding-top:10px!important; padding-bottom:10px!important; margin-bottom:7px!important; }
+  .page-7 .tc-box h4 { margin-bottom:6px!important; }
+  .page-7 .tc-li { margin-bottom:3px!important; line-height:1.52!important; }
+  .page-7 .print-footer { margin-top:8px!important; padding-top:7px!important; }
+
+  /* Print/PDF optimisation: preserve Natural Blues while removing screen-only compositing. */
+  *, *::before, *::after {
+    animation:none!important;
+    transition:none!important;
+    text-shadow:none!important;
+    filter:none!important;
+    -webkit-filter:none!important;
+    backdrop-filter:none!important;
+    -webkit-backdrop-filter:none!important;
+  }
+  .cov-header,
+  .wb,
+  .sh,
+  .st,
+  .ct,
+  .qa-card,
+  .info-box,
+  .excl-box,
+  .tc-box,
+  .tp,
+  .wi {
+    box-shadow:none!important;
+  }
+  .cov-header,
+  .wb {
+    background-image:none!important;
+    background-color:#0b2545!important;
+  }
+  .cov-header::before,
+  .cov-header::after,
+  .wb::before {
+    display:none!important;
+    content:none!important;
+  }
+
   a[href]::after { content:none!important; }
 }

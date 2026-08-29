@@ -1,175 +1,84 @@
-/*
- * ADC Proposal - print-only refinement layer
- * Purpose: preserve the existing proposal content and typography while making
- * the seven explicit page blocks export predictably to A4/PDF.
- * No proposal wording, font size, font family or text width is changed here.
- */
-
+/* ADC Proposal - print-only refinement. No proposal wording is changed. */
 @media print {
-  /* Keep the authored seven-page structure without artificial vertical stretch. */
   .page-block {
     display: block !important;
     justify-content: initial !important;
     align-content: initial !important;
     align-items: initial !important;
+    break-inside: avoid-page !important;
+    page-break-inside: avoid !important;
   }
 
-  .page-block.page-1 {
-    break-before: auto !important;
-    page-break-before: auto !important;
-  }
-
+  .page-block.page-1 { break-before: auto !important; page-break-before: auto !important; }
   .page-block.page-2,
   .page-block.page-3,
   .page-block.page-4,
   .page-block.page-5,
   .page-block.page-6,
-  .page-block.page-7 {
-    break-before: page !important;
-    page-break-before: always !important;
-  }
+  .page-block.page-7 { break-before: page !important; page-break-before: always !important; }
+  .page-block.page-7 { break-after: auto !important; page-break-after: auto !important; }
 
-  .page-block.page-7 {
-    break-after: auto !important;
-    page-break-after: auto !important;
-  }
-
-  /* Never separate a section title from the content immediately following it. */
-  .sh {
-    break-after: avoid-page !important;
-    page-break-after: avoid !important;
-  }
-
-  .sh + .st,
-  .sh + .qa-grid,
-  .sh + .info-box,
-  .sh + .mr-wrap,
-  .sh + .pos-grid {
+  .sh { break-after: avoid-page !important; page-break-after: avoid !important; }
+  .sh + .st, .sh + .qa-grid, .sh + .info-box, .sh + .mr-wrap, .sh + .pos-grid {
     break-before: avoid-page !important;
     page-break-before: avoid !important;
   }
 
-  /* Preserve complete rows/cards and prevent browser-created word splitting. */
-  .st tr,
-  .ct tr,
-  .mr-wrap tr,
-  .qa-card,
-  .pos-card,
-  .info-box,
-  .excl-box,
-  .tc-box,
-  .wi {
+  .st tr, .ct tr, .mr-wrap tr, .qa-card, .pos-card, .info-box, .excl-box, .tc-box, .wi {
     break-inside: avoid !important;
     page-break-inside: avoid !important;
   }
 
-  .st td,
-  .st th,
-  .ct td,
-  .ct th,
-  .mr-wrap td,
-  .mr-wrap th,
-  .cov-sub,
-  .cov-date,
-  .cov-overview-item,
-  .xi,
-  .tc-li {
+  .st td, .st th, .ct td, .ct th, .mr-wrap td, .mr-wrap th,
+  .cov-sub, .cov-date, .cov-overview-item, .xi, .tc-li {
     word-break: normal !important;
     overflow-wrap: normal !important;
     hyphens: none !important;
   }
 
-  /*
-   * Vertical-only consolidation for the three authored page blocks that exceed
-   * one A4 sheet in Chromium. Font sizes, line heights, column widths and text
-   * wrapping are intentionally left exactly as defined in index.css.
-   */
-  .page-2 .sh,
-  .page-6 .sh {
-    margin-top: 4px !important;
-    margin-bottom: 2px !important;
-    padding-top: 3px !important;
-    padding-bottom: 3px !important;
-  }
-
-  .page-2 .st,
-  .page-6 .st {
-    margin-bottom: 3px !important;
-  }
-
-  .page-2 .st th,
-  .page-2 .st td,
-  .page-6 .st th,
-  .page-6 .st td {
-    padding-top: 2px !important;
-    padding-bottom: 2px !important;
-  }
-
-  .page-7 .sh {
+  /* Pages 2 and 6: vertical consolidation only; font sizes and line heights unchanged. */
+  .page-2 .sh, .page-6 .sh {
     margin-top: 3px !important;
     margin-bottom: 1px !important;
     padding-top: 2px !important;
     padding-bottom: 2px !important;
   }
-
-  .page-7 .st {
-    margin-bottom: 2px !important;
-  }
-
-  .page-7 .st th,
-  .page-7 .st td {
-    padding-top: 1.5px !important;
-    padding-bottom: 1.5px !important;
-  }
-
-  .page-7 .qa-grid {
-    gap: 4px !important;
-    margin-bottom: 3px !important;
-  }
-
-  .page-7 .qa-card {
-    padding-top: 4px !important;
-    padding-bottom: 4px !important;
-  }
-
-  .page-7 .qa-card h5 {
-    margin-bottom: 2px !important;
+  .page-2 .st, .page-6 .st { margin-bottom: 2px !important; }
+  .page-2 .st th, .page-2 .st td, .page-6 .st th, .page-6 .st td {
+    padding-top: 1px !important;
     padding-bottom: 1px !important;
   }
-
-  .page-7 .qa-item {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+  .page-2 .print-footer, .page-6 .print-footer {
+    margin-top: 3px !important;
+    padding-top: 3px !important;
   }
 
-  .page-7 .info-box,
-  .page-7 .excl-box,
-  .page-7 .tc-box {
-    padding-top: 5px !important;
-    padding-bottom: 5px !important;
-    margin-bottom: 4px !important;
-  }
-
-  .page-7 .excl-grid {
-    gap: 1px 10px !important;
-  }
-
-  .page-7 .xi {
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
-  }
-
-  .page-7 .tc-box h4,
-  .page-7 .excl-box h4 {
-    margin-bottom: 3px !important;
-  }
-
-  .page-7 .tc-li {
+  /* Page 7 carries the densest closing sections. Consolidate only vertical whitespace. */
+  .page-7 .sh {
+    margin-top: 2px !important;
     margin-bottom: 1px !important;
+    padding-top: 1px !important;
+    padding-bottom: 1px !important;
   }
+  .page-7 .st { margin-bottom: 1px !important; }
+  .page-7 .st th, .page-7 .st td {
+    padding-top: 0.5px !important;
+    padding-bottom: 0.5px !important;
+  }
+  .page-7 .qa-grid { gap: 2px !important; margin-bottom: 2px !important; }
+  .page-7 .qa-card { padding: 2px 6px !important; }
+  .page-7 .qa-card h5 { margin-bottom: 1px !important; padding-bottom: 0 !important; }
+  .page-7 .qa-item { padding-top: 0 !important; padding-bottom: 0 !important; }
+  .page-7 .info-box, .page-7 .excl-box, .page-7 .tc-box {
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    margin-bottom: 2px !important;
+  }
+  .page-7 .excl-grid { gap: 0 8px !important; }
+  .page-7 .xi { padding-top: 0 !important; padding-bottom: 0 !important; }
+  .page-7 .tc-box h4, .page-7 .excl-box h4 { margin-bottom: 1px !important; }
+  .page-7 .tc-li { margin-bottom: 0 !important; }
+  .page-7 .print-footer { margin-top: 2px !important; padding-top: 2px !important; }
 
-  /* Keep the browser from appending URLs after links in print. */
-  a[href]::after {
-    content: none !important;
-  }
+  a[href]::after { content: none !important; }
 }

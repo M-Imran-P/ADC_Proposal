@@ -1,0 +1,30 @@
+name: Fix Restore Workflow
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/fix-restore-workflow.yml']
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('.github/workflows/restore-finalised-chatgpt-content.yml')
+          s=p.read_text()
+          s=s.replace("r'          /\\* ===== SECTION 9: DOORS & WINDOWS ===== \\*/", "r'          \\{/\\* ===== SECTION 9: DOORS & WINDOWS ===== \\*/")
+          s=s.replace("        /\\* ===== PAGE 6:)", "        \\{/\\* ===== PAGE 6:)")
+          s=s.replace("r'          /\\* ===== SECTION 10: PAINTING ===== \\*/", "r'          \\{/\\* ===== SECTION 10: PAINTING ===== \\*/")
+          s=s.replace("          /\\* ===== SECTION 11:)", "          \\{/\\* ===== SECTION 11:)")
+          s=s.replace("r'          /\\* ===== SECTION 11: ELECTRICAL ===== \\*/", "r'          \\{/\\* ===== SECTION 11: ELECTRICAL ===== \\*/")
+          s=s.replace("          /\\* ===== SECTION 12:)", "          \\{/\\* ===== SECTION 12:)")
+          p.write_text(s)
+          PY
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/workflows/restore-finalised-chatgpt-content.yml
+          git commit -m "Fix restore workflow patterns"
+          git push

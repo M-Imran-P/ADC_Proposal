@@ -28,6 +28,13 @@
     page-break-after:auto!important;
   }
 
+  /* Controlled logical break: Quality Assurance begins a fresh sheet.
+     This balances the closing material and produces a true seven-page A4 set. */
+  #sec-14 {
+    break-before:page!important;
+    page-break-before:always!important;
+  }
+
   /* Keep headings with their following content and keep individual rows/cards intact. */
   .sh { break-after:avoid-page!important; page-break-after:avoid!important; }
   .st tr,.ct tr,.mr-wrap tr,.qa-card,.pos-card,.info-box,.excl-box,.wi,.tc-li {

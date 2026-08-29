@@ -670,7 +670,7 @@ export default function App() {
               </tr>
               <tr>
                 <td>Water Supply Pipes</td>
-                <td colSpan={4}>CPVC Class B (4 kg) SDR 11 — Ashirwad / Supreme / Astral or equivalent. External pipes on raised clamps. Solar/geyser provision for all bathrooms.</td>
+                <td colSpan={4}>CPVC SDR 11 — Ashirwad / Supreme / Astral or equivalent. External pipes on raised clamps. Solar/geyser provision for all bathrooms.</td>
               </tr>
               <tr>
                 <td>Hot &amp; Cold Water Lines</td>

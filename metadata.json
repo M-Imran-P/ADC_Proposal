@@ -1,0 +1,6 @@
+{
+  "name": "ADC Proposal Matrix 2026",
+  "description": "Acme Designs & Constructions Master Proposal Matrix 2026 — Interactive Turnkey Residential Construction Proposal, Specification Comparator, Cost Estimator & Quote Generator.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
